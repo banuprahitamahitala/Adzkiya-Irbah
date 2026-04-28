@@ -3,70 +3,232 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kiki</title>
+  <title>hehe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    body { overflow-x: hidden; }
 
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Poppins&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    .landing {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
+      color: white;
+      text-align: center;
+      padding: 20px;
+      gap: 20px;
+    }
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
+    .landing h1 {
+      font-size: 1.8rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .buttons {
+      position: relative;
+      height: 50px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      position: absolute;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #6366f1;
+      color: white;
+      cursor: pointer;
+      font-size: 0.9rem;
+      opacity: 0;
+      transform: scale(0.9);
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+
+    .btn.show {
+      opacity: 1;
+      transform: scale(1);
+      pointer-events: auto;
+      animation: fadeIn 1s forwards;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background: #818cf8;
+    }
+
+    .main {
+      display: none;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #fbcfe8, #e0e7ff);
+      color: #1e293b;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .message {
+      max-width: 600px;
+      margin: auto;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    /* ✨ PARAGRAF */
+    .message p {
+      margin-bottom: 20px;
+      opacity: 0;
+      transform: translateY(15px);
+      transition: all 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .message p.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* tombol reveal */
+    .reveal-btn {
+      display: block;
+      margin: 10px auto 20px auto;
+      width: fit-content;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      transition: 0.3s;
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+  </style>
 </head>
-
-<audio id="bgm"></audio>
-
-<button id="musicBtn" class="music-btn">🔇</button>
-
 <body>
 
-<div class="wrapper">
-  <div class="title">Congratulation</div>
-
-  <div class="photo-wrapper">
-    <img src="asset/kiya.jpg" class="photo">
-
-    <!-- Daun -->
-    <img src="asset/daun.png" class="leaf-left">
-    <img src="asset/daun.png" class="leaf-right">
-
-    <!-- Bunga -->
-    <img src="asset/flower.png" class="flower">
+  <!-- LANDING -->
+  <div class="landing" id="landing">
+    <h1>
+      Aku pengen cerita sesuatu hehe<br>
+      Coba kamu baca yaa..
+    </h1>
+    <div class="buttons">
+      <button class="btn" id="btn1" onclick="nextStep(1)">Klik disini</button>
+      <button class="btn" id="btn2" onclick="nextStep(2)">Selamat anda kena tipu 😆</button>
+      <button class="btn" id="btn3" onclick="nextStep(3)">Tapi boong</button>
+      <button class="btn" id="btn4" onclick="nextStep(4)">Yakin mau liat?</button>
+      <button class="btn" id="btn5" onclick="openMessage()">Yaudah ini aku cerita ya</button>
+    </div>
   </div>
 
-  <div class="name">Adzkiya Irbah, S.Si.</div>
+  <!-- MAIN -->
+  <div class="main" id="main">
+    <div class="message" id="message">
+      <p>Haiii, aku bingung juga openingnya mau gimana hehe. Jadiii aku pengen cerita
+          sesuatu. Karna sepertinya aku akan sangat menyesal kalo ngga bilang ini, 
+          sebelum kita lulus. </p>
+      <p>Jujurrr... aku udah lama jadi silent fan mu. Dulu aku cuma bisa sebatas
+          mengagumi kamu aja, karna dulu aku juga masih sama seseorang. Sekarang aku 
+          dah sendirian lagi. Momen pertama kali yang bikin aku kagum ke kamu tuh waktu
+          kamu nge MC pas KKN, dalam hati kaya waww ternyata orang ini punya sisi 
+          lain yang belum aku lihat dan keren bgt, kok bisa tiba-tiba switch dari 
+          mode biasa ke mode nge MC se smooth itu. Aku tu selalu perhatiin dan 
+          ndengerin pas kamu nge MC, karna di telingaku tu kek ademm, nyaman pwol 
+          pokok e buat dinikmati. Dan aku iri karna aku ngerasa nggak bisa kaya gitu.</p>
+      <p>Aku juga suka banget tiap kita ngobrol, kek asik nyambung gitulah pokok e.
+          Walaupun kadang aku sendiri juga bingung mulainya gimana. Maaf ya klo aku 
+          ngechat cari topiknya, aneh bgt hehe, malah bahas mas mas geodesi ukesma 
+          itu 😄. Karna aku juga bingung kalo buka chat ke kamu tu bahas apa. Kemaren 
+          aku juga malah sambat skripsi ke kamu haha.</p>
+      <p>Trus aku tuh kaget ternyata MBTI mu dimulai dari huruf E ya, tak kirain tuh
+          kamu I tapi ternyata E. Huruf ketiganya tu F kan ya klo gasalah, makannya
+          aku mikir apa ya gift yang paling cocok buat kamu sidang nanti wkwk. Akhirnya
+          ku buat itulah, custom digital congratulation card. Jujur aku malu pas mo ngasi,
+          jadi aku selipin aja di pisang wkwk, itupun kuselipin pas mo pulang biar gak
+          diliat sm temen-temen yang lain 😄. Pas kamu chat malemnya itu aku seneng banget tauu 
+          dinotice sm kamu, kek DUAARRRR. Ngga sia-sia effortku buat bikinnya. Bersyukur kamu
+          suka sama yang aku kasih, walaupun simpel dan ekonomis.</p>
+      <p>Btw aku sangat jarang ngungkapin perasaan dan pikiranku, hanya ke
+          beberapa orang sangat aku percayai untuk cerita panjang lebar kaya gini. </p>
+      <p>Next.. aku boleh nggak ya buat ngenal kamu lebih banyak lagi.. ngobrol lebih
+          banyak lagi.. siapa tahu dari obrolan kecil kita, aku bisa nemuin banyak hal
+          tentang kamu yang selama ini belum aku tahu. Aku nggak maksa buru-buru, cuma
+          pengen jalanin pelan-pelan.. karena jujur aja, aku nyaman tiap ngobrol sama
+          kamu.</p>
+      <p>Aku bakal seneng banget kalau kamu membolehkan… tapi kalau pun nggak, aku
+          tetap menghargai keputusan kamu kok.Yang penting, aku berharap kita tetap
+          bisa dekat, entah itu sebagai teman… atau mungkin lebih dari itu nanti 😊. Maaf
+          yah kalo misal ni kaya tiba-tiba banget, aku cuma pengen ngeluarin apa yang
+          ada di pikiranku, daripada aku menyesal di kemudian hari karna ngga pernah bilang.</p>
+    </div>
 
-  <div class="divider"></div>
-
-  <div class="message">
-    Selamat atas gelar barunya Kiya, yey.<br>
-    Semoga berkah, lancar rezekinya, sehat selalu.<br>
-    Dan semoga pertemanan kita selalu terjaga.<br>
-    SEE YOU ON TOP!<br>
-    <br>
-    This is my small project during my internship,<br>
-    I'm still learning and trying to make this<br>
-    as good as possible, hope you like it.😊 
+    <!-- tombol pindah -->
+    <div class="reveal-btn" id="revealBtn" onclick="showNext()">. . .</div>
   </div>
 
-  <div class="divider"></div>
+  <script>
+    function nextStep(step) {
+      document.getElementById('btn' + step).classList.remove('show');
+      setTimeout(() => {
+        document.getElementById('btn' + (step + 1)).classList.add('show');
+      }, 300);
+    }
 
-  <div class="footer">
-    From proud friend, your Adit
-    <span>~ Banu ~</span>
-  </div>
-  <div class="card-image">
-    <img src="asset/kolase.png" alt="foto">
-  </div>
-</div>
+    window.onload = () => {
+      setTimeout(() => {
+        document.getElementById('btn1').classList.add('show');
+      }, 1000);
+    };
 
-<!-- Confetti -->
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    function openMessage() {
+      document.getElementById('landing').style.display = 'none';
+      document.getElementById('main').style.display = 'block';
+      setTimeout(initMessage, 300);
+    }
 
-<!-- JS -->
-<script src="script.js"></script>
+    // 🔥 LOGIC PARAGRAF + BUTTON PINDAH
+    let currentIndex = 0;
+    let paragraphs = [];
+    let btn;
+
+    function initMessage() {
+      paragraphs = document.querySelectorAll('#message p');
+      btn = document.getElementById('revealBtn');
+
+      paragraphs.forEach(p => p.classList.remove('show'));
+
+      if (paragraphs.length > 0) {
+        paragraphs[0].classList.add('show');
+        currentIndex = 1;
+
+        // tombol nempel ke paragraf pertama
+        paragraphs[0].after(btn);
+      }
+    }
+
+    function showNext() {
+      if (currentIndex < paragraphs.length) {
+        const currentP = paragraphs[currentIndex];
+        currentP.classList.add('show');
+
+        // pindahin tombol ke paragraf terbaru
+        currentP.after(btn);
+
+        currentIndex++;
+      }
+
+      if (currentIndex >= paragraphs.length) {
+        btn.style.display = 'none';
+      }
+    }
+  </script>
 
 </body>
 </html>
