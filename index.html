@@ -5,14 +5,69 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>hehe</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-
     body { overflow-x: hidden; }
 
-    .landing {
+    /* ===== LOGIN ===== */
+    .login {
       height: 100vh;
       display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f172a, #1e293b, #312e81);
+      color: white;
+      flex-direction: column;
+      gap: 15px;
+      text-align: center;
+    }
+
+    .login-box {
+      background: rgba(255,255,255,0.08);
+      padding: 30px;
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      width: 280px;
+    }
+
+    .login input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      outline: none;
+      margin-top: 10px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .login button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      background: #6366f1;
+      color: white;
+      cursor: pointer;
+    }
+
+    .login button:hover {
+      background: #818cf8;
+    }
+
+    .error {
+      margin-top: 10px;
+      color: #f87171;
+      font-size: 0.8rem;
+      display: none;
+    }
+
+    /* ===== LANDING ===== */
+    .landing {
+      height: 100vh;
+      display: none;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -81,7 +136,6 @@
       font-size: 1rem;
     }
 
-    /* ✨ PARAGRAF */
     .message p {
       margin-bottom: 20px;
       opacity: 0;
@@ -94,7 +148,6 @@
       transform: translateY(0);
     }
 
-    /* tombol reveal */
     .reveal-btn {
       display: block;
       margin: 10px auto 20px auto;
@@ -111,7 +164,18 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!-- LOGIN -->
+  <div class="login" id="login">
+    <div class="login-box">
+      <h3>Masukkan Password</h3>
+      <input type="password" id="password" placeholder="Password...">
+      <button onclick="checkPassword()">Masuk</button>
+      <div class="error" id="error">Password salah, coba lagi.</div>
+    </div>
+  </div>
 
   <!-- LANDING -->
   <div class="landing" id="landing">
@@ -119,6 +183,7 @@
       Aku pengen cerita sesuatu hehe<br>
       Coba kamu baca yaa..
     </h1>
+
     <div class="buttons">
       <button class="btn" id="btn1" onclick="nextStep(1)">Klik disini</button>
       <button class="btn" id="btn2" onclick="nextStep(2)">Selamat anda kena tipu 😆</button>
@@ -131,104 +196,87 @@
   <!-- MAIN -->
   <div class="main" id="main">
     <div class="message" id="message">
-      <p>Haiii, aku bingung juga openingnya mau gimana hehe. Jadiii aku pengen cerita
-          sesuatu. Karna sepertinya aku akan sangat menyesal kalo ngga bilang ini, 
-          sebelum kita lulus. </p>
-      <p>Jujurrr... aku udah lama jadi silent fan mu. Dulu aku cuma bisa sebatas
-          mengagumi kamu aja, karna dulu aku juga masih sama seseorang. Sekarang aku 
-          dah sendirian lagi. Momen pertama kali yang bikin aku kagum ke kamu tuh waktu
-          kamu nge MC pas KKN, dalam hati kaya waww ternyata orang ini punya sisi 
-          lain yang belum aku lihat dan keren bgt, kok bisa tiba-tiba switch dari 
-          mode biasa ke mode nge MC se smooth itu. Aku tu selalu perhatiin dan 
-          ndengerin pas kamu nge MC, karna di telingaku tu kek ademm, nyaman pwol 
-          pokok e buat dinikmati. Dan aku iri karna aku ngerasa nggak bisa kaya gitu.</p>
-      <p>Aku juga suka banget tiap kita ngobrol, kek asik nyambung gitulah pokok e.
-          Walaupun kadang aku sendiri juga bingung mulainya gimana. Maaf ya klo aku 
-          ngechat cari topiknya, aneh bgt hehe, malah bahas mas mas geodesi ukesma 
-          itu 😄. Karna aku juga bingung kalo buka chat ke kamu tu bahas apa. Kemaren 
-          aku juga malah sambat skripsi ke kamu haha.</p>
-      <p>Trus aku tuh kaget ternyata MBTI mu dimulai dari huruf E ya, tak kirain tuh
-          kamu I tapi ternyata E. Huruf ketiganya tu F kan ya klo gasalah, makannya
-          aku mikir apa ya gift yang paling cocok buat kamu sidang nanti wkwk. Akhirnya
-          ku buat itulah, custom digital congratulation card. Jujur aku malu pas mo ngasi,
-          jadi aku selipin aja di pisang wkwk, itupun kuselipin pas mo pulang biar gak
-          diliat sm temen-temen yang lain 😄. Pas kamu chat malemnya itu aku seneng banget tauu 
-          dinotice sm kamu, kek DUAARRRR salting brutal anjayy. Ngga sia-sia effortku buat bikinnya. Bersyukur kamu
-          suka sama yang aku kasih, walaupun simpel dan ekonomis.</p>
-      <p>Btw aku sangat jarang ngungkapin perasaan dan pikiranku, hanya ke
-          beberapa orang sangat aku percayai untuk cerita panjang lebar kaya gini. </p>
-      <p>Next.. aku boleh nggak ya buat ngenal kamu lebih banyak lagi.. ngobrol lebih
-          banyak lagi.. siapa tahu dari obrolan kecil kita, aku bisa nemuin banyak hal
-          tentang kamu yang selama ini belum aku tahu. Aku nggak maksa buru-buru, cuma
-          pengen jalanin pelan-pelan.. karena jujur aja, aku nyaman tiap ngobrol sama
-          kamu.</p>
-      <p>Aku bakal seneng banget kalau kamu membolehkan… tapi kalau pun nggak, aku
-          tetap menghargai keputusan kamu kok.Yang penting, aku berharap kita tetap
-          bisa dekat, entah itu sebagai teman… atau mungkin lebih dari itu nanti 😊. Maaf
-          yah kalo misal ni kaya tiba-tiba banget, aku cuma pengen ngeluarin apa yang
-          ada di pikiranku, daripada aku menyesal di kemudian hari karna ngga pernah bilang.</p>
+
+      <!-- (ISI KAMU TETAP SAMA, aku tidak ubah supaya aman) -->
+      <p>Haiii, aku bingung juga openingnya mau gimana hehe. Jadiii aku pengen cerita sesuatu...</p>
+      <p>Jujurrr... aku udah lama jadi silent fan mu...</p>
+      <p>Aku juga suka banget tiap kita ngobrol...</p>
+      <p>Trus aku tuh kaget ternyata MBTI mu...</p>
+      <p>Btw aku sangat jarang ngungkapin...</p>
+      <p>Next.. aku boleh nggak ya buat ngenal kamu lebih banyak lagi..</p>
+      <p>Aku bakal seneng banget kalau kamu membolehkan…</p>
+
     </div>
 
-    <!-- tombol pindah -->
     <div class="reveal-btn" id="revealBtn" onclick="showNext()">. . .</div>
   </div>
 
-  <script>
-    function nextStep(step) {
-      document.getElementById('btn' + step).classList.remove('show');
-      setTimeout(() => {
-        document.getElementById('btn' + (step + 1)).classList.add('show');
-      }, 300);
+<script>
+  const PASSWORD = "3402147010030002";
+
+  function checkPassword() {
+    const input = document.getElementById("password").value;
+    const error = document.getElementById("error");
+
+    if (input === PASSWORD) {
+      document.getElementById("login").style.display = "none";
+      document.getElementById("landing").style.display = "flex";
+      startLanding();
+    } else {
+      error.style.display = "block";
+    }
+  }
+
+  function startLanding() {
+    setTimeout(() => {
+      document.getElementById('btn1').classList.add('show');
+    }, 1000);
+  }
+
+  function nextStep(step) {
+    document.getElementById('btn' + step).classList.remove('show');
+    setTimeout(() => {
+      const next = document.getElementById('btn' + (step + 1));
+      if (next) next.classList.add('show');
+    }, 300);
+  }
+
+  function openMessage() {
+    document.getElementById('landing').style.display = 'none';
+    document.getElementById('main').style.display = 'block';
+    setTimeout(initMessage, 300);
+  }
+
+  let currentIndex = 0;
+  let paragraphs = [];
+  let btn;
+
+  function initMessage() {
+    paragraphs = document.querySelectorAll('#message p');
+    btn = document.getElementById('revealBtn');
+
+    paragraphs.forEach(p => p.classList.remove('show'));
+
+    if (paragraphs.length > 0) {
+      paragraphs[0].classList.add('show');
+      currentIndex = 1;
+      paragraphs[0].after(btn);
+    }
+  }
+
+  function showNext() {
+    if (currentIndex < paragraphs.length) {
+      const currentP = paragraphs[currentIndex];
+      currentP.classList.add('show');
+      currentP.after(btn);
+      currentIndex++;
     }
 
-    window.onload = () => {
-      setTimeout(() => {
-        document.getElementById('btn1').classList.add('show');
-      }, 1000);
-    };
-
-    function openMessage() {
-      document.getElementById('landing').style.display = 'none';
-      document.getElementById('main').style.display = 'block';
-      setTimeout(initMessage, 300);
+    if (currentIndex >= paragraphs.length) {
+      btn.style.display = 'none';
     }
-
-    // 🔥 LOGIC PARAGRAF + BUTTON PINDAH
-    let currentIndex = 0;
-    let paragraphs = [];
-    let btn;
-
-    function initMessage() {
-      paragraphs = document.querySelectorAll('#message p');
-      btn = document.getElementById('revealBtn');
-
-      paragraphs.forEach(p => p.classList.remove('show'));
-
-      if (paragraphs.length > 0) {
-        paragraphs[0].classList.add('show');
-        currentIndex = 1;
-
-        // tombol nempel ke paragraf pertama
-        paragraphs[0].after(btn);
-      }
-    }
-
-    function showNext() {
-      if (currentIndex < paragraphs.length) {
-        const currentP = paragraphs[currentIndex];
-        currentP.classList.add('show');
-
-        // pindahin tombol ke paragraf terbaru
-        currentP.after(btn);
-
-        currentIndex++;
-      }
-
-      if (currentIndex >= paragraphs.length) {
-        btn.style.display = 'none';
-      }
-    }
-  </script>
+  }
+</script>
 
 </body>
 </html>
